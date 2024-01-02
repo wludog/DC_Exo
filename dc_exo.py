@@ -46,7 +46,7 @@ class Classifier:
         #                                   filled=True, rounded=True,
         #                                   special_characters=True)
         # graph = graphviz.Source(graph_data)
-        # this plots a decision tree graph , graph.render("DC_Exo_Class")
+        # comment this block in to plot a graph , graph.render("DC_Exo_Class")
         y_predict = clf.predict(self.X_test)
         print("Report:", classification_report(self.y_test, y_predict))
         print("Cohen_Kappa:", cohen_kappa_score(self.y_test, y_predict))
@@ -56,5 +56,5 @@ class Classifier:
 
 if __name__ == "__main__":
     classifier = Classifier()
-    classifier.import_for_classify("./dataKepAll.csv")
+    classifier.import_for_classify("./testSamples.csv")
     classifier.classify()
