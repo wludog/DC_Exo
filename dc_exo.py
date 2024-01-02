@@ -1,4 +1,4 @@
-import graphviz
+# comment in to plot DC tree graph import graphviz
 import pandas
 from sklearn import tree
 from sklearn.preprocessing import LabelEncoder
@@ -39,14 +39,14 @@ class Classifier:
     def classify(self):
         clf = tree.DecisionTreeClassifier(ccp_alpha=0.01)
         clf = clf.fit(self.X_train, self.y_train)
-        graph_data = tree.export_graphviz(clf,
-                                          out_file=None,
-                                          feature_names=self.headers,
-                                          class_names=self.classesUnique,
-                                          filled=True, rounded=True,
-                                          special_characters=True)
-        graph = graphviz.Source(graph_data)
-        graph.render("ExoPlanets")
+        # graph_data = tree.export_graphviz(clf,
+        #                                   out_file=None,
+        #                                   feature_names=self.headers,
+        #                                   class_names=self.classesUnique,
+        #                                   filled=True, rounded=True,
+        #                                   special_characters=True)
+        # graph = graphviz.Source(graph_data)
+        # this plots a decision tree graph , graph.render("DC_Exo_Class")
         y_predict = clf.predict(self.X_test)
         print("Report:", classification_report(self.y_test, y_predict))
         print("Cohen_Kappa:", cohen_kappa_score(self.y_test, y_predict))
